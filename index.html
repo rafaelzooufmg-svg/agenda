@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<html lang="pt-BR"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calendário 2026 · Programas e Serviços Leite · Alta Genetics</title>
@@ -476,7 +474,7 @@
     footer { flex-direction: column; gap: 4px; text-align: center; }
   }
 </style>
-</head>
+<meta id="dcngeagmmhegagicpcmpinaoklddcgon"></head>
 <body>
 
 <!-- MODAL LOGIN -->
@@ -497,8 +495,8 @@
 <!-- MODAL EVENTO -->
 <div class="modal-overlay" id="modal-event">
   <div class="modal-box">
-    <h3 id="ev-title">Adicionar evento</h3>
-    <div class="modal-sub" id="ev-sub"></div>
+    <h3 id="ev-title">Dia 18 — Rafael Azevedo</h3>
+    <div class="modal-sub" id="ev-sub">Junho 2026 · Adicionar evento</div>
     <label>Categoria</label>
     <select id="ev-categoria" style="width:100%;padding:10px 14px;border:1.5px solid #e8ecf0;border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:14px;color:#1a2330;background:#f7f8fa;">
       <option value="atendimento">🟢 Atendimento</option>
@@ -523,12 +521,12 @@
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast show" id="toast">Publicando no site...</div>
 
 <header>
   <div class="header-inner">
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-      <rect width="40" height="40" rx="8" fill="white" fill-opacity="0.12"/>
+      <rect width="40" height="40" rx="8" fill="white" fill-opacity="0.12"></rect>
       <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="14" font-weight="900" font-family="Segoe UI, sans-serif">A</text>
     </svg>
     <div class="logo-area">
@@ -540,13 +538,13 @@
       <h1>Calendário 2026 · Programas e Serviços Leite</h1>
       <p>Agenda individual dos Técnicos</p>
     </div>
-    <button class="btn-edit-toggle" id="btn-edit" onclick="toggleEdit()">
+    <button class="btn-edit-toggle active" id="btn-edit" onclick="toggleEdit()">
       <span class="edit-dot"></span><span>Modo Edição</span>
     </button>
   </div>
 </header>
 
-<div class="edit-banner" id="edit-banner">
+<div class="edit-banner visible" id="edit-banner">
   <div class="edit-banner-inner">
     <span>✏️ <strong>Modo edição ativo</strong> — clique em qualquer dia para adicionar eventos. Clique no ✕ de um chip para removê-lo.</span>
     <button class="btn btn-secondary" onclick="exportJSON()" style="font-size:12px;padding:6px 12px;flex-shrink:0;">⬇ Backup JSON</button>
@@ -565,22 +563,20 @@
     </div>
     <div class="filter-group">
       <label>Técnico(a)</label>
-      <select id="sel-tecnico" onchange="render()">
-        <option value="">— Selecione um técnico —</option>
-      </select>
+      <select id="sel-tecnico" onchange="render()"><option value="">— Selecione um técnico —</option><option value="Alexandre Scarpa">Alexandre Scarpa</option><option value="Alice Arantes">Alice Arantes</option><option value="Bianca">Bianca</option><option value="Felipe Secco">Felipe Secco</option><option value="Fábio Fogaça">Fábio Fogaça</option><option value="Itamar Aguiar">Itamar Aguiar</option><option value="Paula Tiveron">Paula Tiveron</option><option value="Rafael Azevedo">Rafael Azevedo</option><option value="Rayce Ferreira">Rayce Ferreira</option><option value="Reginaldo Santos">Reginaldo Santos</option></select>
     </div>
     <div class="filter-group">
       <label>Mês</label>
       <select id="sel-mes" onchange="render()">
         <option value="">— Selecione o mês —</option>
-      </select>
+      <option value="Janeiro">Janeiro</option><option value="Fevereiro">Fevereiro</option><option value="Março">Março</option><option value="Abril">Abril</option><option value="Maio">Maio</option><option value="Junho">Junho</option><option value="Julho">Julho</option><option value="Agosto">Agosto</option><option value="Setembro">Setembro</option><option value="Outubro">Outubro</option><option value="Novembro">Novembro</option><option value="Dezembro">Dezembro</option></select>
     </div>
-    <span class="filters-info" id="filtros-info"></span>
+    <span class="filters-info" id="filtros-info">22 dia(s) com atividades</span>
   </div>
 </div>
 
 <main class="main">
-  <div class="manage-panel" id="manage-panel">
+  <div class="manage-panel visible" id="manage-panel">
     <div class="manage-header"><h3>⚙️ Gerenciar técnicos</h3></div>
     <div class="manage-body">
       <div class="manage-group">
@@ -590,17 +586,137 @@
       <div style="align-self:flex-end"><button class="btn btn-primary" onclick="addTec()">+ Adicionar</button></div>
       <div class="manage-group" style="margin-left:auto">
         <label>Remover técnico</label>
-        <select id="del-tec"></select>
+        <select id="del-tec"><option value="Alexandre Scarpa">Alexandre Scarpa</option><option value="Alice Arantes">Alice Arantes</option><option value="Bianca">Bianca</option><option value="Felipe Secco">Felipe Secco</option><option value="Fábio Fogaça">Fábio Fogaça</option><option value="Itamar Aguiar">Itamar Aguiar</option><option value="Paula Tiveron">Paula Tiveron</option><option value="Rafael Azevedo">Rafael Azevedo</option><option value="Rayce Ferreira">Rayce Ferreira</option><option value="Reginaldo Santos">Reginaldo Santos</option></select>
       </div>
       <div style="align-self:flex-end"><button class="btn-danger" onclick="delTec()">Remover</button></div>
     </div>
   </div>
-  <div id="output"></div>
+  <div id="output">
+    <div class="calendar-card">
+      <div class="calendar-header">
+        <div class="calendar-header-left">
+          <h2>Rafael Azevedo</h2>
+          <p>Programas e Serviços Leite · 2026</p>
+        </div>
+        <span class="month-badge">Junho 2026</span>
+      </div>
+      <div class="weekdays">
+        <div class="weekday weekend">Dom</div>
+        <div class="weekday">Seg</div><div class="weekday">Ter</div>
+        <div class="weekday">Qua</div><div class="weekday">Qui</div>
+        <div class="weekday">Sex</div>
+        <div class="weekday weekend">Sáb</div>
+      </div>
+      <div class="days-grid edit-mode"><div class="day-cell empty"></div><div class="day-cell" onclick="openEvt(event,1)">
+      <div class="day-num">1</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,1,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,1)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,2)">
+      <div class="day-num">2</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,2,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,2)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,3)">
+      <div class="day-num">3</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,3,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,3)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,4)">
+      <div class="day-num">4</div>
+      <div class="day-events"><span class="event-chip chip-feriado" title="Corpus Christi">Corpus Christi<span class="chip-del" onclick="delEvt(event,4,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,4)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,5)">
+      <div class="day-num">5</div>
+      <div class="day-events"><span class="event-chip chip-livre" title="Dia livre">Dia livre<span class="chip-del" onclick="delEvt(event,5,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,5)">+ Adicionar</button></div>
+    </div><div class="day-cell weekend-day" onclick="openEvt(event,6)">
+      <div class="day-num">6</div>
+      <div class="day-events"><button class="btn-add-event" onclick="openEvt(event,6)">+ Adicionar</button></div>
+    </div><div class="day-cell weekend-day" onclick="openEvt(event,7)">
+      <div class="day-num">7</div>
+      <div class="day-events"><button class="btn-add-event" onclick="openEvt(event,7)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,8)">
+      <div class="day-num">8</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,8,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,8)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,9)">
+      <div class="day-num">9</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,9,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,9)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,10)">
+      <div class="day-num">10</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,10,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,10)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,11)">
+      <div class="day-num">11</div>
+      <div class="day-events"><span class="event-chip chip-outros" title="Alta Uberaba 9:00">Alta Uberaba 9:00<span class="chip-del" onclick="delEvt(event,11,0)">✕</span></span><span class="event-chip chip-outros" title="Sekita 13:00">Sekita 13:00<span class="chip-del" onclick="delEvt(event,11,1)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,11)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,12)">
+      <div class="day-num">12</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,12,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,12)">+ Adicionar</button></div>
+    </div><div class="day-cell weekend-day" onclick="openEvt(event,13)">
+      <div class="day-num">13</div>
+      <div class="day-events"><button class="btn-add-event" onclick="openEvt(event,13)">+ Adicionar</button></div>
+    </div><div class="day-cell weekend-day" onclick="openEvt(event,14)">
+      <div class="day-num">14</div>
+      <div class="day-events"><button class="btn-add-event" onclick="openEvt(event,14)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,15)">
+      <div class="day-num">15</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,15,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,15)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,16)">
+      <div class="day-num">16</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,16,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,16)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,17)">
+      <div class="day-num">17</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,17,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,17)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,18)">
+      <div class="day-num">18</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,18,0)">✕</span></span><span class="event-chip chip-reuniao" title="Alta Uberaba">Alta Uberaba<span class="chip-del" onclick="delEvt(event,18,1)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,18)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,19)">
+      <div class="day-num">19</div>
+      <div class="day-events"><span class="event-chip chip-reuniao" title="Reunião Gabriel Uberaba">Reunião Gabriel Uberaba<span class="chip-del" onclick="delEvt(event,19,0)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,19)">+ Adicionar</button></div>
+    </div><div class="day-cell weekend-day" onclick="openEvt(event,20)">
+      <div class="day-num">20</div>
+      <div class="day-events"><button class="btn-add-event" onclick="openEvt(event,20)">+ Adicionar</button></div>
+    </div><div class="day-cell weekend-day" onclick="openEvt(event,21)">
+      <div class="day-num">21</div>
+      <div class="day-events"><button class="btn-add-event" onclick="openEvt(event,21)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,22)">
+      <div class="day-num">22</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,22,0)">✕</span></span><span class="event-chip chip-reuniao" title="Planejamento Programas e serviços 27">Planejamento Programas e serviços 27<span class="chip-del" onclick="delEvt(event,22,1)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,22)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,23)">
+      <div class="day-num">23</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,23,0)">✕</span></span><span class="event-chip chip-reuniao" title="Planejamento Programas e serviços 27">Planejamento Programas e serviços 27<span class="chip-del" onclick="delEvt(event,23,1)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,23)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,24)">
+      <div class="day-num">24</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,24,0)">✕</span></span><span class="event-chip chip-reuniao" title="Planejamento Programas e serviços 27">Planejamento Programas e serviços 27<span class="chip-del" onclick="delEvt(event,24,1)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,24)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,25)">
+      <div class="day-num">25</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,25,0)">✕</span></span><span class="event-chip chip-reuniao" title="Planejamento Programas e serviços 27">Planejamento Programas e serviços 27<span class="chip-del" onclick="delEvt(event,25,1)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,25)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,26)">
+      <div class="day-num">26</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,26,0)">✕</span></span><span class="event-chip chip-outros" title="Niver Mikeli">Niver Mikeli<span class="chip-del" onclick="delEvt(event,26,1)">✕</span></span><span class="event-chip chip-reuniao" title="Planejamento Programas e serviços 27">Planejamento Programas e serviços 27<span class="chip-del" onclick="delEvt(event,26,2)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,26)">+ Adicionar</button></div>
+    </div><div class="day-cell weekend-day" onclick="openEvt(event,27)">
+      <div class="day-num">27</div>
+      <div class="day-events"><button class="btn-add-event" onclick="openEvt(event,27)">+ Adicionar</button></div>
+    </div><div class="day-cell weekend-day" onclick="openEvt(event,28)">
+      <div class="day-num">28</div>
+      <div class="day-events"><button class="btn-add-event" onclick="openEvt(event,28)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,29)">
+      <div class="day-num">29</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,29,0)">✕</span></span><span class="event-chip chip-reuniao" title="Planejamento Neonatos + Programas e Serviços 27">Planejamento Neonatos + Programas e Serviços 27<span class="chip-del" onclick="delEvt(event,29,1)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,29)">+ Adicionar</button></div>
+    </div><div class="day-cell" onclick="openEvt(event,30)">
+      <div class="day-num">30</div>
+      <div class="day-events"><span class="event-chip chip-homeoffice" title="Home office">Home office<span class="chip-del" onclick="delEvt(event,30,0)">✕</span></span><span class="event-chip chip-reuniao" title="Planejamento Neonatos + Programas e Serviços 27">Planejamento Neonatos + Programas e Serviços 27<span class="chip-del" onclick="delEvt(event,30,1)">✕</span></span><button class="btn-add-event" onclick="openEvt(event,30)">+ Adicionar</button></div>
+    </div><div class="day-cell empty"></div><div class="day-cell empty"></div><div class="day-cell empty"></div><div class="day-cell empty"></div></div>
+      <div class="legend">
+        <span class="legend-title">Legenda:</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#1d4ed8"></span>Férias</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#0284c7"></span>Home office</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#16a34a"></span>Atendimento</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#d97706"></span>Deslocamento</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#7c3aed"></span>Treinamento/Curso</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#dc2626"></span>Feriado</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#9333ea"></span>Evento externo</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#ea580c"></span>Reunião/Evento interno</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#64748b"></span>Particular</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#15803d"></span>Dia livre</span>
+      </div>
+    </div></div>
 </main>
 
 <footer>
   <span>Alta Genetics Brasil · Programas e Serviços Leite · 2026</span>
-  <span id="last-update">Atualizado em: junho/2026</span>
+  <span id="last-update">Atualizado em: 15/jun/2026 às 09:56</span>
 </footer>
 
 <script>
@@ -752,7 +868,7 @@ const DIAS_MES = {Janeiro:31,Fevereiro:28,Março:31,Abril:30,Maio:31,Junho:30,Ju
 // ═══════════════════════════════════════════════════════
 //  DADOS 2027 — feriados pré-carregados
 // ═══════════════════════════════════════════════════════
-let AGENDA_2027 = {"Alexandre Scarpa": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}, "Alice Arantes": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}, "Bianca": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}, "Fábio Fogaça": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}, "Felipe Secco": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}, "Itamar Aguiar": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}, "Paula Tiveron": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}, "Rafael Azevedo": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}, "Rayce Ferreira": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}, "Reginaldo Santos": {"Janeiro": {"1": ["Feriado|Ano Novo"]}, "Fevereiro": {"8": ["Feriado|Carnaval"], "9": ["Feriado|Carnaval"], "10": ["Feriado|Cinzas"]}, "Março": {"2": ["Feriado|Aniversário de Uberaba"], "26": ["Feriado|Sexta-feira Santa"], "28": ["Feriado|Páscoa"]}, "Abril": {"21": ["Feriado|Tiradentes"]}, "Maio": {"1": ["Feriado|Dia do Trabalhador"], "27": ["Feriado|Corpus Christi"]}, "Junho": {}, "Julho": {}, "Agosto": {"15": ["Feriado|Nsa. Sra. da Abadia"]}, "Setembro": {"7": ["Feriado|Independência do Brasil"]}, "Outubro": {"12": ["Feriado|Nsa Sra. Aparecida"]}, "Novembro": {"2": ["Feriado|Finados"], "15": ["Feriado|Proclamação da República"], "20": ["Feriado|Consciência Negra"]}, "Dezembro": {"25": ["Feriado|Natal"]}}};
+let AGENDA_2027 = {"Alexandre Scarpa":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}},"Alice Arantes":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}},"Bianca":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}},"Fábio Fogaça":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}},"Felipe Secco":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}},"Itamar Aguiar":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}},"Paula Tiveron":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}},"Rafael Azevedo":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}},"Rayce Ferreira":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}},"Reginaldo Santos":{"Janeiro":{"1":["Feriado|Ano Novo"]},"Fevereiro":{"8":["Feriado|Carnaval"],"9":["Feriado|Carnaval"],"10":["Feriado|Cinzas"]},"Março":{"2":["Feriado|Aniversário de Uberaba"],"26":["Feriado|Sexta-feira Santa"],"28":["Feriado|Páscoa"]},"Abril":{"21":["Feriado|Tiradentes"]},"Maio":{"1":["Feriado|Dia do Trabalhador"],"27":["Feriado|Corpus Christi"]},"Junho":{},"Julho":{},"Agosto":{"15":["Feriado|Nsa. Sra. da Abadia"]},"Setembro":{"7":["Feriado|Independência do Brasil"]},"Outubro":{"12":["Feriado|Nsa Sra. Aparecida"]},"Novembro":{"2":["Feriado|Finados"],"15":["Feriado|Proclamação da República"],"20":["Feriado|Consciência Negra"]},"Dezembro":{"25":["Feriado|Natal"]}}};
 const DIAS_MES_2027 = {"Janeiro": 31, "Fevereiro": 28, "Março": 31, "Abril": 30, "Maio": 31, "Junho": 30, "Julho": 31, "Agosto": 31, "Setembro": 30, "Outubro": 31, "Novembro": 30, "Dezembro": 31};
 const PRIMEIRO_DIA_2027 = {"Janeiro": 5, "Fevereiro": 1, "Março": 1, "Abril": 4, "Maio": 6, "Junho": 2, "Julho": 4, "Agosto": 0, "Setembro": 3, "Outubro": 5, "Novembro": 1, "Dezembro": 3};
 const PRIMEIRO_DIA = {Janeiro:4,Fevereiro:0,Março:0,Abril:3,Maio:5,Junho:1,Julho:3,Agosto:6,Setembro:2,Outubro:4,Novembro:0,Dezembro:2}; // 2026
@@ -1100,5 +1216,6 @@ document.getElementById('modal-login').addEventListener('click', function(e){ if
 document.getElementById('modal-event').addEventListener('click', function(e){ if(e.target===this) closeEvt(); });
 render();
 </script>
-</body>
-</html>
+
+
+<div id="afi-root-container" style="position: fixed; top: 0px; right: 0px; z-index: 2147483647;"></div></body></html>
