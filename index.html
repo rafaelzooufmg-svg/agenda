@@ -807,8 +807,9 @@ tecnicos.forEach(t => {
 
 // Render principal
 function render() {
-  const tec = selTec.value;
-  const mes = selMes.value;
+  const tec = document.getElementById('sel-tecnico').value;
+  const mes = document.getElementById('sel-mes').value;
+  const ano = document.getElementById('sel-ano').value;
   const out = document.getElementById('output');
   const info = document.getElementById('filtros-info');
 
@@ -822,9 +823,16 @@ function render() {
     return;
   }
 
-  const dados = (AGENDA[tec] && AGENDA[tec][mes]) ? AGENDA[tec][mes] : {};
-  const total = DIAS_MES[mes];
-  const primeirodia = PRIMEIRO_DIA[mes]; // dia da semana do dia 1
+  // Seleciona base de dados e configs conforme o ano
+  const agendaAtual = ano === '2027' ? AGENDA_2027 : AGENDA;
+  const diasMesAtual = ano === '2027' ? DIAS_MES_2027 : DIAS_MES;
+  const primeiroDiaAtual = ano === '2027' ? PRIMEIRO_DIA_2027 : PRIMEIRO_DIA;
+
+  if (!agendaAtual[tec]) agendaAtual[tec] = {};
+  if (!agendaAtual[tec][mes]) agendaAtual[tec][mes] = {};
+  const dados = agendaAtual[tec][mes];
+  const total = diasMesAtual[mes];
+  const primeirodia = primeiroDiaAtual[mes];
 
   // Contar eventos para info
   const diasComEvento = Object.keys(dados).length;
